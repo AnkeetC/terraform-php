@@ -19,14 +19,14 @@ Before you begin, make sure you have the following:
    cd azure-php-deployment
    
 2. Create an SSH key pair (if you don't have one):
-'''ssh-keygen -t rsa -b 2048 -f keyfile -N ""
+   ```ssh-keygen -t rsa -b 2048 -f keyfile -N ""
 
 3.Update the main.tf file with your Azure subscription ID and any other configuration options you may need.
 
 4.Run Terraform to provision the Azure infrastructure:
 
-''' terraform init
-terraform apply '''
+``` terraform init
+```terraform apply 
 
 Follow the prompts to confirm the deployment.
 
@@ -43,7 +43,7 @@ Additionally, view PHP information at: http://<your-public-ip>/info.php
 
 ## Cleanup
 To clean up and delete the Azure resources, run:
-'''terraform destroy
+```terraform destroy```
 Follow the prompts to confirm the resource deletion.
 
 ## Notes
