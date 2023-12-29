@@ -32,7 +32,7 @@ Follow the prompts to confirm the deployment.
 
 5. Once the deployment is complete, copy the public IP address displayed in the Terraform output.
 
-#steup.sh
+# steup.sh
 I have added a basic open source php application installation step in step.sh file , I request you to modiphy as per your php application need and installation requirements.
 
 6.Access the deployed PHP application:
@@ -41,12 +41,12 @@ Open a web browser and go to: http://<your-public-ip>/slim
 
 Additionally, view PHP information at: http://<your-public-ip>/info.php
 
-##Cleanup
+## Cleanup
 To clean up and delete the Azure resources, run:
 '''terraform destroy
 Follow the prompts to confirm the resource deletion.
 
-##Notes
+## Notes
 The setup script installs Apache, PHP, and Git, clones the Slim framework, sets permissions, and restarts Apache.
 Make sure to customize the script or Terraform configurations based on your specific requirements.
 For troubleshooting, check Apache and PHP logs on the Azure VM.
