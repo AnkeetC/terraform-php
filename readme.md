@@ -25,8 +25,8 @@ Before you begin, make sure you have the following:
 
 4.Run Terraform to provision the Azure infrastructure:
 
-'''terraform init
-terraform apply
+''' terraform init
+terraform apply '''
 
 Follow the prompts to confirm the deployment.
 
