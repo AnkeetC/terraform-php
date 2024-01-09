@@ -1,0 +1,50 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Update package lists
+      apt:
+        update_cache: yes
+
+    - name: Install Apache, PHP, and Git
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - apache2
+        - php
+        - libapache2-mod-php
+        - php-mysql
+        - git
+
+    - name: Enable PHP module
+      apache2_module:
+        name: php7.4
+        state: present
+      notify:
+        - Restart Apache
+
+    - name: Clone Slim framework
+      git:
+        repo: https://github.com/slimphp/Slim.git
+        dest: /var/www/html/slim
+
+    - name: Set permissions
+      file:
+        path: /var/www/html/slim
+        owner: www-data
+        group: www-data
+        recurse: yes
+
+    - name: Create a simple PHP info file for testing
+      copy:
+        content: "<?php phpinfo(); ?>"
+        dest: /var/www/html/info.php
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
+
